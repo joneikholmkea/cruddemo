@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Home</title>
+</head>
+<body>
+<h2>
+    Welcome to CRUD
+</h2>
+
+<form method="post">
+    <input type="text" name="username" value="Anna"/>
+    <input type="text" name="password" value="1234" />
+    <input type="hidden" name="id" value="0" />
+    <input type="submit" value="Create User" />
+</form>
+<form method="post" th:each="person : ${persons}">
+    <input type="text" name="username" th:value="${person.username}"/>
+    <input type="text" name="password" th:value="${person.password}" />
+    <input type="hidden" name="id" th:value="${person.id}" />
+    <input type="submit" name="edituser" value="Save Changes" />
+</form>
+
+</body>
+</html>
